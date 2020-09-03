@@ -1,0 +1,81 @@
+body {
+    background: url('../img/flower.jpg');
+    cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/default.cur),default;
+}
+
+#page-header,
+#footer {
+    /* 背景图像的地址（url括号里）  */
+    background: url('../img/flower.jpg');
+    /* 背景图像不重复 */
+    background-repeat: no-repeat;
+    /* 背景图像大小 */
+    background-size: cover;
+}
+/* 深色模式footer */
+[data-theme='dark'] #footer[data-type=color] {
+    background: #0d0d0db7;
+}
+#body-wrap {
+    background: rgb(129 132 130 / 86%)
+}
+[data-theme='dark'] #body-wrap {
+    background: #0d0d0db7;
+}
+
+/* 文章页背景 */
+.layout_post>#post {
+    /* 以下代表白色透明度为0.3 */
+    background: rgba(255, 255, 255, .8);
+}
+
+/* 所有背景（包括首页卡片、文章页、页面页等） */
+#aside_content .card-widget,
+#recent-posts>.recent-post-item,
+.layout_page>div:first-child:not(.recent-posts),
+.layout_post>#page,
+.layout_post>#post,
+.read-mode .layout_post>#post {
+    /* 以下代表白色透明度为0.3 */
+    background: rgba(255, 255, 255, .8);
+}
+
+/* 所有背景（包括首页卡片、文章页、页面页等） */
+[data-theme='dark'] #aside_content .card-widget,
+[data-theme='dark'] #recent-posts>.recent-post-item,
+[data-theme='dark'] .layout_page>div:first-child:not(.recent-posts),
+[data-theme='dark'] .layout_post>#page,
+[data-theme='dark'] .layout_post>#post,
+[data-theme='dark'] .read-mode .layout_post>#post {
+    /* 以下代表白色透明度为0.3 */
+    background: rgb(89 93 90)
+}
+
+/* 分页器选中 背景 */
+#pagination .page-number.current{
+    background: #292f2f
+}
+[data-theme='dark'] #pagination .page-number.current{
+    background: #595d5d
+}
+/* 右侧设置回到顶部等按钮 */
+#rightside > div > button{
+    background: transparent
+}
+
+/* 滚动条颜色 */
+::-webkit-scrollbar-thumb{
+    background: #404646
+}
+
+
+[data-theme='light'] {
+    --btn-bg:#5b6f54;
+    --text-bg-hover:#5b6f54;
+    --btn-hover-color:#a1765d;
+}
+
+.card-announcement-animation{
+    color: inherit;
+    animation: none;
+}
