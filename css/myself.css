@@ -79,3 +79,16 @@ body {
     color: inherit;
     animation: none;
 }
+
+/* 首页文本宽度 */
+#recent-posts > .recent-post-item >.recent-post-info {
+    width: 100%;
+}
+
+/* 文章目录 */
+.toc-level-1 .toc-number{
+    display: none;
+}
+.toc-level-2 .toc-number{
+    display: inline-block;
+}
