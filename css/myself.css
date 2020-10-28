@@ -79,3 +79,8 @@ body {
     color: inherit;
     animation: none;
 }
+
+/* 首页文章内容宽度 */
+#recent-posts > .recent-post-item >.recent-post-info {
+    width: 100%;
+}
