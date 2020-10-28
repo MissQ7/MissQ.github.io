@@ -63,6 +63,18 @@ body {
     background: transparent
 }
 
+/* 目录数字 */
+#recent-posts > .recent-post-item >.recent-post-info {
+    width: 100%;
+}
+
+.toc-number {
+    display: none;
+}
+.toc-level-2 .toc-number {
+    display: block;
+}
+
 /* 滚动条颜色 */
 ::-webkit-scrollbar-thumb{
     background: #404646
