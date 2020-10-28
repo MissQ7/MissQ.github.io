@@ -83,3 +83,10 @@ body {
 #recent-posts > .recent-post-item >.recent-post-info {
     width: 100%;
 }
+
+.toc-number {
+    display: none;
+}
+.toc-level-2 .toc-number {
+    display: block;
+}
