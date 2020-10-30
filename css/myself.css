@@ -130,7 +130,7 @@ body {
 #nav .menus_items .menus_item > a:after{
     background-color: var(--btn-bg);
 }
-#nav.fixed #toggle-menu:hover {
+#nav.fixed a:hover, #nav.fixed #site-name:hover, #nav.fixed #toggle-menu:hover {
     color: var(--btn-bg);
 }
 
