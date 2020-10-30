@@ -59,7 +59,7 @@ body {
     background: #595d5d
 }
 /* 右侧设置回到顶部等按钮 */
-#rightside > div > button{
+#rightside > div > button, #rightside > div > a{
     background: transparent
 }
 
@@ -68,11 +68,12 @@ body {
     background: #404646
 }
 
-
 [data-theme='light'] {
     --btn-bg:#5b6f54;
     --text-bg-hover:#5b6f54;
     --btn-hover-color:#a1765d;
+    --hr-border: #798575;
+    --hr-before-color: #5b6f54;
 }
 
 .card-announcement-animation{
@@ -80,9 +81,32 @@ body {
     animation: none;
 }
 
-/* 首页文本宽度 */
+/* 布局 */
+.layout{
+    flex-direction: row-reverse;
+}
+@media screen and (min-width: 900px) {
+    #aside_content{
+        padding-right: 15px;
+    }
+}
+
+/* 首页文本宽高 */
+#recent-posts > .recent-post-item{
+    height: auto;
+}
 #recent-posts > .recent-post-item >.recent-post-info {
     width: 100%;
+    padding: 40px;
+}
+#page-header.full_page{
+    height: 25vh;
+}
+#page-header.full_page #site-info{
+    top: 40%;
+}
+#page-header #scroll-down{
+    display: none;
 }
 
 /* 文章目录 */
@@ -91,4 +115,29 @@ body {
 }
 .toc-level-2 .toc-number{
     display: inline-block;
+}
+
+/* 搜索框颜色 */
+.search-dialog__title{
+    color: var(--btn-bg);
+    font-weight: 600;
+}
+#local-search .search-dialog .local-search-box input{
+    border: 2px solid var(--btn-bg);
+}
+
+/* 导航栏color */
+#nav .menus_items .menus_item > a:after{
+    background-color: var(--btn-bg);
+}
+#nav.fixed #toggle-menu:hover {
+    color: var(--btn-bg);
+}
+
+/* 普通页面头部head */
+#page-header.not-index-bg{
+    height: 10rem;
+}
+#page-header #page-site-info{
+    top: 4rem;
 }
