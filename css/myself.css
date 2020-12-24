@@ -102,6 +102,7 @@ body {
 @media screen and (min-width: 768px) {
     #aside_content .sticky_layout{
         position: sticky;
+        top: 20px;
     }
 }
 @media screen and (max-width: 768px) {
@@ -133,7 +134,6 @@ body {
         display: block;
         width: inherit;
         animation: inherit;
-        
     }
 }
 
