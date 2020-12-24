@@ -1,0 +1,343 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CSS选择器及其优先级 | 小柒博客</title><meta name="keywords" content="技术"><meta name="author" content="Mr.Q"><meta name="copyright" content="Mr.Q"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="选择器的种类基础选择器 标签选择器 (tagName)  1234body &amp;#123;  width: 100%;  background: pink;&amp;#125;   类选择器 (.)  1234.class &amp;#123;  width: 100%;  background: pink;&amp;#125;   ID 选择器 (#)  1234#id &amp;#123;  width: 100%;  bac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS选择器及其优先级">
+<meta property="og:url" content="http://example.com/2020/12/22/CSS%E9%80%89%E6%8B%A9%E5%99%A8%E5%8F%8A%E5%85%B6%E4%BC%98%E5%85%88%E7%BA%A7/index.html">
+<meta property="og:site_name" content="小柒博客">
+<meta property="og:description" content="选择器的种类基础选择器 标签选择器 (tagName)  1234body &amp;#123;  width: 100%;  background: pink;&amp;#125;   类选择器 (.)  1234.class &amp;#123;  width: 100%;  background: pink;&amp;#125;   ID 选择器 (#)  1234#id &amp;#123;  width: 100%;  bac">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/flower.jpg">
+<meta property="article:published_time" content="2020-12-22T10:29:29.964Z">
+<meta property="article:modified_time" content="2020-12-24T07:11:43.670Z">
+<meta property="article:author" content="Mr.Q">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/flower.jpg"><link rel="shortcut icon" href="/img/qq.png"><link rel="canonical" href="http://example.com/2020/12/22/CSS%E9%80%89%E6%8B%A9%E5%99%A8%E5%8F%8A%E5%85%B6%E4%BC%98%E5%85%88%E7%BA%A7/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-12-24 15:11:43'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><link rel="stylesheet" href="/css/myself.css"><meta name="generator" content="Hexo 5.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/sun.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide"><i class="fa-fw fas fa-bookmark"></i><span> JS</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://cn.vuejs.org/"><i class="fa-fw fas fa-bookmark"></i><span> Vue</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://react.docschina.org/"><i class="fa-fw fas fa-bookmark"></i><span> React</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://www.webpackjs.com/"><i class="fa-fw fas fa-bookmark"></i><span> Webpack</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="http://nodejs.cn/"><i class="fa-fw fas fa-bookmark"></i><span> NodeJS</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/flower.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">小柒博客</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-link"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide"><i class="fa-fw fas fa-bookmark"></i><span> JS</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://cn.vuejs.org/"><i class="fa-fw fas fa-bookmark"></i><span> Vue</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://react.docschina.org/"><i class="fa-fw fas fa-bookmark"></i><span> React</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="https://www.webpackjs.com/"><i class="fa-fw fas fa-bookmark"></i><span> Webpack</span></a></li><li><a class="site-page" target="_blank" rel="noopener" href="http://nodejs.cn/"><i class="fa-fw fas fa-bookmark"></i><span> NodeJS</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">CSS选择器及其优先级</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-12-22T10:29:29.964Z" title="发表于 2020-12-22 18:29:29">2020-12-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-12-24T07:11:43.670Z" title="更新于 2020-12-24 15:11:43">2020-12-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CSS/">CSS</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="选择器的种类"><a href="#选择器的种类" class="headerlink" title="选择器的种类"></a>选择器的种类</h1><h2 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h2><ol>
+<li>标签选择器 (tagName)</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background</span>: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>类选择器 (.)</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.class</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background</span>: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>ID 选择器 (#)</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#id</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">background</span>: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>通配选择器 (*)</p>
+<blockquote>
+<pre><code>在CSS3中,星号(*)可以和命名空间组合使用:</code></pre>
+</blockquote>
+<pre><code>ns| *  - 会匹配ns命名空间下的所有元素
+* | * - 会匹配所有命名空间下的所有元素
+| * - 会匹配所有没有命名空间的元素</code></pre>
+</li>
+<li><p>属性选择器 ([])</p>
+<pre><code>&gt; 属性选择器通过已经存在的属性名或属性值匹配元素
+
+&gt;**语法:**</code></pre>
+<p><strong>[attr]</strong><br>表示带有以 attr 命名的属性的元素。<br>*<em>[attr=value]**<br>表示带有以 attr 命名的属性，且属性值为 value 的元素。<br>**[attr~=value]**<br>表示带有以 attr 命名的属性的元素，并且该属性是一个以空格作为分隔的值列表，其中至少有一个值为 value。<br>**[attr|=value]**<br>表示带有以 attr 命名的属性的元素，属性值为“value”或是以“value-”为前缀（”-“为连字符，Unicode 编码为 U+002D）开头。典型的应用场景是用来匹配语言简写代码（如 zh-CN，zh-TW 可以用 zh 作为 value）。<br>**[attr^=value]**<br>表示带有以 attr 命名的属性，且属性值是以 value 开头的元素。<br>**[attr$=value]**<br>表示带有以 attr 命名的属性，且属性值是以 value 结尾的元素。<br>**[attr</em>=value]**<br>表示带有以 attr 命名的属性，且属性值至少包含一个 value 值的元素。<br>**[attr operator value i]**<br>在属性选择器的右方括号前添加一个用空格隔开的字母 i（或 I），可以在匹配属性值时忽略大小写（支持 ASCII 字符范围之内的字母）。<br>**[attr operator value s]**<br>在属性选择器的右方括号前添加一个用空格隔开的字母 s（或 S），可以在匹配属性值时区分大小写（支持 ASCII 字符范围之内的字母）。</p>
+</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 存在title属性的&lt;a&gt; 元素 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[title]</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: purple;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 存在href属性并且属性值匹配&quot;https://example.org&quot;的&lt;a&gt; 元素 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href=<span class="string">&quot;https://example.org&quot;</span>]</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 存在href属性并且属性值结尾是&quot;.org&quot;的&lt;a&gt; 元素 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href$=<span class="string">&quot;.org&quot;</span>]</span> &#123;</span><br><span class="line">  <span class="attribute">font-style</span>: italic;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 存在class属性并且属性值包含以空格分隔的&quot;logo&quot;的&lt;a&gt;元素 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[class~=<span class="string">&quot;logo&quot;</span>]</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">2px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 以 &quot;#&quot; 开头的页面本地链接 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href^=<span class="string">&quot;#&quot;</span>]</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: gold;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 包含 &quot;example&quot; 的链接 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href*=<span class="string">&quot;example&quot;</span>]</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: silver;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 包含 &quot;insensitive&quot; 的链接,不区分大小写 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href*=<span class="string">&quot;insensitive&quot;</span> i]</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: cyan;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 包含 &quot;cAsE&quot; 的链接，区分大小写 */</span></span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href*=<span class="string">&quot;cAsE&quot;</span> s]</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: pink;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="组选择器（选择器列表）"><a href="#组选择器（选择器列表）" class="headerlink" title="组选择器（选择器列表）"></a>组选择器（选择器列表）</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span>,</span><br><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: red <span class="number">2px</span> solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>选择器列表无效化：</strong><br>在选择器列表中，如果有一个选择器不被支持，那么整条规则就会失效。这种情况下可以使用<code>:is()</code>，但是会影响整个选择器列表的优先级。<br><br/></p>
+<h2 id="关系选择器"><a href="#关系选择器" class="headerlink" title="关系选择器"></a>关系选择器</h2><ol>
+<li>后代元素选择器 ( A B)</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* p可能是div的子孙重孙等等 */</span></span><br><span class="line"><span class="selector-tag">div</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>直接子元素选择器 (A &gt; B)</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* p肯定是div的儿子 */</span></span><br><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>兄弟元素选择器 (A ~ B)</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* img后面所有同级的p将被选中 */</span></span><br><span class="line"><span class="selector-tag">img</span> ~ <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: grey;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>邻近兄弟元素选择器 (A + B)</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* img后面紧跟着的p将被选中 */</span></span><br><span class="line"><span class="selector-tag">img</span> + <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">font-style</span>: bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="伪选择器"><a href="#伪选择器" class="headerlink" title="伪选择器"></a>伪选择器</h2><ol>
+<li>伪类 ( : )<br>为选择的元素的 特殊状态 应用样式</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 所有用户指针悬停的按钮 */</span></span><br><span class="line"><span class="selector-tag">button</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>伪元素 ( :: )<br>可被用于为一个元素的 特定部分 应用样式</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 每一个 &lt;p&gt; 元素的第一行。 */</span></span><br><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">::first-line</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">  <span class="attribute">text-transform</span>: uppercase;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="选择器优先级"><a href="#选择器优先级" class="headerlink" title="选择器优先级"></a>选择器优先级</h1><p>一个选择器的优先级由四位数组成</p>
+<ol>
+<li><strong>千位</strong>：<strong>内联样式，即声明在 style 的属性</strong>，<em>1000</em></li>
+<li><strong>百位</strong>：<strong>ID 选择器</strong>，<em>0100</em></li>
+<li><strong>十位</strong>：<strong>类选择器、属性选择器、伪类</strong>，<em>0010</em></li>
+<li><strong>个位</strong>：<strong>元素、伪元素选择器</strong>，<em>0001</em></li>
+</ol>
+<p>在计算时不进位，即使一百个十位也比不了一个百位，级别碾压。</p>
+<blockquote>
+<p>通用选择器 (*)，组合符 (+, &gt;, ~, ‘ ‘)，和否定伪类 (:not) 不会影响优先级。</p>
+</blockquote>
+<p>看下图：<br><img src="https://img-blog.csdnimg.cn/20201211183522361.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dvb2RfbW9yaW5nXw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><code>h1 + p::first-letter</code>的选择器权重：</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>选择器类型</th>
+<th>权重</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h1</td>
+<td>标签选择器</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>p</td>
+<td>标签选择器</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>::first-letter</td>
+<td>伪元素选择器</td>
+<td>0001</td>
+</tr>
+<tr>
+<td></td>
+<td>合计</td>
+<td>0003</td>
+</tr>
+</tbody></table>
+<p><code>li &gt; a[href*=&quot;en-US&quot;] &gt; .inline-warning</code>的选择器权重：</p>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>选择器类型</th>
+<th>权重</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>li</td>
+<td>标签选择器</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>a</td>
+<td>标签选择器</td>
+<td>0001</td>
+</tr>
+<tr>
+<td>[href*=”en-US”]</td>
+<td>属性选择器</td>
+<td>0010</td>
+</tr>
+<tr>
+<td>.inline-warning</td>
+<td>类选择器</td>
+<td>0010</td>
+</tr>
+<tr>
+<td></td>
+<td>合计</td>
+<td>0022</td>
+</tr>
+</tbody></table>
+<h2 id="其他优先级规则："><a href="#其他优先级规则：" class="headerlink" title="其他优先级规则："></a>其他优先级规则：</h2><ul>
+<li>最近的祖先样式比其他祖先样式优先级高</li>
+<li>直接样式比祖先样式优先级高</li>
+<li>!important 优先级最高</li>
+<li>多类选择器<code>&lt;div class=&quot;blue red&quot;&gt;xxx&lt;/div&gt;</code>中的顺序无关紧要，不牵扯优先级顺序(也可以写成 red blue 都不影响样式)</li>
+<li>一个元素应用多个 class 样式，后定义的优先，如<code>.red &#123; color: red&#125; .blue&#123; color: blue&#125;</code>，若应用了 red、blue 两种样式，则会展示 blue 定义的样式</li>
+</ul>
+<h2 id="一个栗子"><a href="#一个栗子" class="headerlink" title="一个栗子"></a>一个栗子</h2><p>下面这个例子中的 111、222 分明是什么颜色，你答对了吗？</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.red</span> &#123;</span></span><br><span class="line">    color: red;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="css">  <span class="selector-class">.blue</span> &#123;</span></span><br><span class="line">    color: blue;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;red blue&quot;</span>&gt;</span>111<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;blue red&quot;</span>&gt;</span>222<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>答案在此，看下图：<br><img src="https://img-blog.csdnimg.cn/20201216104609712.png" alt="在这里插入图片描述"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Mr.Q</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2020/12/22/CSS%E9%80%89%E6%8B%A9%E5%99%A8%E5%8F%8A%E5%85%B6%E4%BC%98%E5%85%88%E7%BA%A7/">http://example.com/2020/12/22/CSS%E9%80%89%E6%8B%A9%E5%99%A8%E5%8F%8A%E5%85%B6%E4%BC%98%E5%85%88%E7%BA%A7/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">小柒博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a></div><div class="post_share"><div class="social-share" data-image="/img/flower.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2020/12/22/CSS%E5%AE%9E%E7%8E%B0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"><img class="next-cover" src="/img/flower.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CSS实现水平垂直居中</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/10/27/相等运算符/" title="相等操作符中的隐式转换"><img class="cover" src="/img/flower.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-27</div><div class="title">相等操作符中的隐式转换</div></div></a></div><div><a href="/2020/10/30/typescript基础/" title="TypeScript 基础"><img class="cover" src="/img/flower.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-30</div><div class="title">TypeScript 基础</div></div></a></div><div><a href="/2020/12/22/BFC块级格式化上下文/" title="BFC块级格式化上下文 —— （Block Formatting Context）"><img class="cover" src="/img/flower.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-22</div><div class="title">BFC块级格式化上下文 —— （Block Formatting Context）</div></div></a></div><div><a href="/2020/12/22/CSS实现水平垂直居中/" title="CSS实现水平垂直居中"><img class="cover" src="/img/flower.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-22</div><div class="title">CSS实现水平垂直居中</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/sun.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Mr.Q</div><div class="author-info__description">前端相关的技术文档</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/MissQ7"><i class="fab fa-github"></i><span>Follow Me</span></a></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">小七的个人博客</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">选择器的种类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">基础选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%88%E9%80%89%E6%8B%A9%E5%99%A8%E5%88%97%E8%A1%A8%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">组选择器（选择器列表）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">关系选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%AA%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.4.</span> <span class="toc-text">伪选择器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">2.</span> <span class="toc-text">选择器优先级</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E4%BC%98%E5%85%88%E7%BA%A7%E8%A7%84%E5%88%99%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">其他优先级规则：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E6%A0%97%E5%AD%90"><span class="toc-number">2.2.</span> <span class="toc-text">一个栗子</span></a></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/12/22/CSS%E9%80%89%E6%8B%A9%E5%99%A8%E5%8F%8A%E5%85%B6%E4%BC%98%E5%85%88%E7%BA%A7/" title="CSS选择器及其优先级">CSS选择器及其优先级</a><time datetime="2020-12-22T10:29:29.964Z" title="发表于 2020-12-22 18:29:29">2020-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/12/22/CSS%E5%AE%9E%E7%8E%B0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" title="CSS实现水平垂直居中">CSS实现水平垂直居中</a><time datetime="2020-12-22T10:28:48.774Z" title="发表于 2020-12-22 18:28:48">2020-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/12/22/BFC%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87/" title="BFC块级格式化上下文 —— （Block Formatting Context）">BFC块级格式化上下文 —— （Block Formatting Context）</a><time datetime="2020-12-22T10:27:24.616Z" title="发表于 2020-12-22 18:27:24">2020-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/10/30/typescript%E5%9F%BA%E7%A1%80/" title="TypeScript 基础">TypeScript 基础</a><time datetime="2020-10-30T09:14:53.622Z" title="发表于 2020-10-30 17:14:53">2020-10-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2020/10/27/%E7%9B%B8%E7%AD%89%E8%BF%90%E7%AE%97%E7%AC%A6/" title="相等操作符中的隐式转换">相等操作符中的隐式转换</a><time datetime="2020-10-27T10:16:02.389Z" title="发表于 2020-10-27 18:16:02">2020-10-27</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By Mr.Q</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'onhff7dxYpcGAxdjqk0YwJuF-gzGzoHsz',
+      appKey: '8wc5ospH2C2sKq37RkbICSHV',
+      placeholder: '欢迎留言哦~',
+      avatar: 'mp',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
