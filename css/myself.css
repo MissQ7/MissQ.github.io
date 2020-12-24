@@ -99,8 +99,43 @@ body {
         width: 30%;
     }
 }
-
-
+@media screen and (min-width: 768px) {
+    #aside_content .sticky_layout{
+        position: sticky;
+    }
+}
+@media screen and (max-width: 768px) {
+    #aside_content #card-toc {
+        position: fixed;
+        right: 45px;
+        bottom: 30px;
+        z-index: 100;
+        display: none;
+        width: 300px;
+        -webkit-transform-origin: right bottom;
+        -moz-transform-origin: right bottom;
+        -o-transform-origin: right bottom;
+        -ms-transform-origin: right bottom;
+        transform-origin: right bottom;
+        -webkit-animation: toc-open 0.3s;
+        -moz-animation: toc-open 0.3s;
+        -o-animation: toc-open 0.3s;
+        -ms-animation: toc-open 0.3s;
+        animation: toc-open 0.3s;
+    }
+}
+@media screen and (max-width: 900px) {
+    #aside_content #card-toc {
+        position: inherit;
+        right: inherit;
+        bottom: inherit;
+        z-index: inherit;
+        display: block;
+        width: inherit;
+        animation: inherit;
+        
+    }
+}
 
 /* 首页文本宽高 */
 #recent-posts > .recent-post-item{
